@@ -129,7 +129,7 @@ class Wishlist
     {
         $properties = array_diff_key(
             get_object_vars($this),
-            array_flip(['localeDate'])
+            array_flip(['dateTime'])
         );
 
         //remove null/0/false values
