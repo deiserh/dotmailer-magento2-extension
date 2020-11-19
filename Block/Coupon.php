@@ -37,6 +37,11 @@ class Coupon extends \Magento\Framework\View\Element\Template
     private $font;
 
     /**
+     * @var string
+     */
+    private $couponCode;
+
+    /**
      * Coupon constructor.
      *
      * @param Context $context
@@ -66,9 +71,14 @@ class Coupon extends \Magento\Framework\View\Element\Template
     public function generateCoupon()
     {
         try {
-            return $this->getCouponRequestProcessor()
+            // Protects against repeat generation
+            if (!empty($this->couponCode)) {
+                return $this->couponCode;
+            }
+            $this->couponCode = $this->getCouponRequestProcessor()
                 ->processCouponRequest($this->getRequest()->getParams())
                 ->getCouponCode();
+            return $this->couponCode;
         } catch (\ErrorException $e) {
             $this->helper->debug('Problem generating coupon', [
                 'message' => $e->getMessage(),
