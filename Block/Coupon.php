@@ -46,7 +46,7 @@ class Coupon extends \Magento\Framework\View\Element\Template
      *
      * @param Context $context
      * @param Data $helper
-     * @param DotdigitalCouponGeneratorFactory $dotdigitalCouponGeneratorFactory
+     * @param DotdigitalCouponRequestProcessorFactory $dotdigitalCouponRequestProcessorFactory
      * @param Font $font
      * @param array $data
      */
