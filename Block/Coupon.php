@@ -67,6 +67,7 @@ class Coupon extends \Magento\Framework\View\Element\Template
      * Generates the coupon code based on the code id.
      *
      * @return string|null
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function generateCoupon()
     {
